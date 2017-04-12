@@ -132,14 +132,14 @@ def main(args):
     plt.show()
 
     # Get the explained variance
-    explained_variance = pca.explained_variance_ratio_
+    cum_explained_variance = 1 - pca.explained_variance_ratio_
     if args.verbose: print "\nExplained variance (normalized):", explained_variance.shape
 
     # Plot the explained variance
-    plt.title("Explained variance")
-    plt.plot(plt_x_axis, explained_variance, 'ro-')
+    plt.title("Cumulative Explained variance")
+    plt.plot(plt_x_axis, cum_explained_variance, 'ro-')
     plt.xlabel('number of dimensions')
-    plt.ylabel('eigenvalues')
+    plt.ylabel('cumulative explained variance')
     plt.xscale('log')
     plt.show()
 
